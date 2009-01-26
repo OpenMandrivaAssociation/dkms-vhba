@@ -1,6 +1,6 @@
 
 %define version 1.2.1
-#define snapshot 304
+%define snapshot 0
 %define rel	1
 
 # REV=$(svn info https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module| sed -ne 's/^Last Changed Rev: //p')
