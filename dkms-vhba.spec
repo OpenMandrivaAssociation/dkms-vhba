@@ -1,6 +1,6 @@
 
-%define version 1.0.0
-%define snapshot 304
+%define version 1.2.1
+#define snapshot 304
 %define rel	1
 
 # REV=$(svn info https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module| sed -ne 's/^Last Changed Rev: //p')
@@ -11,7 +11,7 @@ Summary:	Virtual SCSI HBA kernel module
 %define module	vhba
 %define oname	vhba-module
 Name:		dkms-vhba
-Version:	1.0.0
+Version:	1.2.1
 %if %snapshot
 Release:	%mkrel 1.svn%snapshot.%rel
 %else
