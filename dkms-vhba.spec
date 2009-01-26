@@ -41,6 +41,8 @@ Virtual SCSI HBA kernel module. The vhba module is used by cdemu.
 %setup -q -n %oname-%version
 %endif
 
+%build
+
 %install
 rm -rf %buildroot
 
@@ -60,9 +62,9 @@ EOF
 rm -rf %{buildroot}
 
 %post
-dkms add     -m %{module} -v %{version}-%{release} --rpm_safe_upgrade &&
-dkms build   -m %{module} -v %{version}-%{release} --rpm_safe_upgrade &&
-dkms install -m %{module} -v %{version}-%{release} --rpm_safe_upgrade
+dkms add	-m %{module} -v %{version}-%{release} --rpm_safe_upgrade &&
+dkms build	-m %{module} -v %{version}-%{release} --rpm_safe_upgrade &&
+dkms install	-m %{module} -v %{version}-%{release} --rpm_safe_upgrade
 true
 
 %preun
