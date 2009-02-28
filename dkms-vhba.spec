@@ -1,7 +1,7 @@
 
 %define version 1.2.1
 %define snapshot 0
-%define rel	1
+%define rel	2
 
 # REV=$(svn info https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module| sed -ne 's/^Last Changed Rev: //p')
 # svn export -r $REV https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module vhba-module-$REV
