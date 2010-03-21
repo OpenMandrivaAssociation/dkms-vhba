@@ -1,7 +1,7 @@
 
 %define version 1.2.1
 %define snapshot 0
-%define rel	2
+%define rel	3
 
 # REV=$(svn info https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module| sed -ne 's/^Last Changed Rev: //p')
 # svn export -r $REV https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module vhba-module-$REV
@@ -24,6 +24,7 @@ URL:		http://cdemu.sourceforge.net/
 Source:		%oname-%snapshot.tar.bz2
 %else
 Source:		http://downloads.sourceforge.net/cdemu/%oname-%version.tar.bz2
+Patch0:		vhba-svn.diff 
 %endif
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
@@ -39,6 +40,7 @@ Virtual SCSI HBA kernel module. The vhba module is used by cdemu.
 %setup -q -n %oname-%snapshot
 %else
 %setup -q -n %oname-%version
+%patch0 -p0 
 %endif
 
 %build
