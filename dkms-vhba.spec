@@ -1,7 +1,8 @@
 
 %define version 1.2.1
-%define snapshot 0
-%define rel	4
+# upstream release tarball is a snapshot-style one
+%define snapshot 20100822
+%define rel	1
 
 # REV=$(svn info https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module| sed -ne 's/^Last Changed Rev: //p')
 # svn export -r $REV https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module vhba-module-$REV
@@ -13,7 +14,7 @@ Summary:	Virtual SCSI HBA kernel module
 Name:		dkms-vhba
 Version:	1.2.1
 %if %snapshot
-Release:	%mkrel 1.svn%snapshot.%rel
+Release:	%mkrel 4.%snapshot.%rel
 %else
 Release:	%mkrel %rel
 %endif
@@ -21,11 +22,9 @@ Group:		System/Kernel and hardware
 License:	GPLv2+
 URL:		http://cdemu.sourceforge.net/
 %if %snapshot
-Source:		%oname-%snapshot.tar.bz2
+Source:		http://downloads.sourceforge.net/cdemu/%oname-%snapshot.tar.gz
 %else
 Source:		http://downloads.sourceforge.net/cdemu/%oname-%version.tar.bz2
-Patch0:		vhba-svn.diff 
-Patch1:		vhba-include.patch
 %endif
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
@@ -41,8 +40,6 @@ Virtual SCSI HBA kernel module. The vhba module is used by cdemu.
 %setup -q -n %oname-%snapshot
 %else
 %setup -q -n %oname-%version
-%patch0 -p0 
-%patch1 -p1
 %endif
 
 %build
