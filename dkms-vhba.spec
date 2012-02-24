@@ -1,7 +1,7 @@
 
 %define version 1.2.1
 # upstream release tarball is a snapshot-style one
-%define snapshot 20100822
+%define snapshot 20110915
 %define rel	1
 
 # REV=$(svn info https://cdemu.svn.sourceforge.net/svnroot/cdemu/trunk/vhba-module| sed -ne 's/^Last Changed Rev: //p')
@@ -22,11 +22,10 @@ Group:		System/Kernel and hardware
 License:	GPLv2+
 URL:		http://cdemu.sourceforge.net/
 %if %snapshot
-Source:		http://downloads.sourceforge.net/cdemu/%oname-%snapshot.tar.gz
+Source0:	http://downloads.sourceforge.net/cdemu/%oname-%snapshot.tar.bz2
 %else
-Source:		http://downloads.sourceforge.net/cdemu/%oname-%version.tar.bz2
+Source0:	http://downloads.sourceforge.net/cdemu/%oname-%version.tar.bz2
 %endif
-BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
 Requires:	dkms
 Requires(post):	dkms
@@ -45,10 +44,8 @@ Virtual SCSI HBA kernel module. The vhba module is used by cdemu.
 %build
 
 %install
-rm -rf %buildroot
-
 install -d -m755 %{buildroot}%{_usrsrc}/%{module}-%{version}-%{release}
-cp -r * %{buildroot}%{_usrsrc}/%{module}-%{version}-%{release}
+cp -r kat  Makefile  vhba.c %{buildroot}%{_usrsrc}/%{module}-%{version}-%{release}
 
 cat > %{buildroot}%{_usrsrc}/%{module}-%{version}-%{release}/dkms.conf <<EOF
 PACKAGE_NAME="%module"
@@ -58,9 +55,6 @@ BUILT_MODULE_NAME[0]="%module"
 MAKE[0]="make KDIR=\${kernel_source_dir}"
 AUTOINSTALL="yes"
 EOF
-
-%clean
-rm -rf %{buildroot}
 
 %post
 dkms add	-m %{module} -v %{version}-%{release} --rpm_safe_upgrade &&
@@ -74,4 +68,5 @@ true
 
 %files
 %defattr(-,root,root)
+%doc AUTHORS  ChangeLog  COPYING README
 %{_usrsrc}/%{module}-%{version}-%{release}
