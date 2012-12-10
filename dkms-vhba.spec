@@ -70,3 +70,35 @@ true
 %defattr(-,root,root)
 %doc AUTHORS  ChangeLog  COPYING README
 %{_usrsrc}/%{module}-%{version}-%{release}
+
+
+%changelog
+* Fri Feb 24 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.2.1-4.20110915.1mdv2012.0
++ Revision: 780095
+- new snapshot 20110915
+
+* Sat Sep 04 2010 Anssi Hannula <anssi@mandriva.org> 1.2.1-4.20100822.1mdv2011.0
++ Revision: 575727
+- new version 20100822
+- drop patches for kernel compatibility, fixed upstream
+
+* Mon Aug 16 2010 Pascal Terjan <pterjan@mandriva.org> 1.2.1-4mdv2011.0
++ Revision: 570620
+- Add missing include (#60674)
+
+* Sun Mar 21 2010 Luis Daniel Lucio Quiroz <dlucio@mandriva.org> 1.2.1-3mdv2010.1
++ Revision: 525984
+- P0 to let new kernels
+
+* Sat Feb 28 2009 Anssi Hannula <anssi@mandriva.org> 1.2.1-2mdv2009.1
++ Revision: 345909
+- rebuild due to missing packages
+
+* Mon Jan 26 2009 Guillaume Bedot <littletux@mandriva.org> 1.2.1-1mdv2009.1
++ Revision: 333900
+- Release 1.2.1
+
+* Wed Apr 23 2008 Anssi Hannula <anssi@mandriva.org> 1.0.0-1.svn304.1mdv2009.0
++ Revision: 196900
+- initial Mandriva release
+
