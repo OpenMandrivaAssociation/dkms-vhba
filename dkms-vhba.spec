@@ -7,12 +7,11 @@ Summary:	Virtual SCSI HBA kernel module
 Name:		dkms-vhba
 # Sync version with cdemu because there's no version for module
 Version:	2.1.1
-Release:	0.%{snapshot}.1
+Release:	0.%{snapshot}.2
 Group:		System/Kernel and hardware
 License:	GPLv2+
 Url:		http://cdemu.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/cdemu/%{oname}-%{snapshot}.tar.bz2
-Source1:	70-vhba.rules
 Source10:	%{name}.rpmlintrc
 Requires:	dkms
 Requires(post,preun):	dkms
@@ -23,7 +22,6 @@ Virtual SCSI HBA kernel module. The vhba module is used by cdemu.
 
 %files
 %{_usrsrc}/%{module}-%{version}-%{release}
-/lib/udev/rules.d/70-vhba.rules
 
 %post
 dkms add	-m %{module} -v %{version}-%{release} --rpm_safe_upgrade &&
@@ -57,6 +55,4 @@ AUTOINSTALL="yes"
 EOF
 sed -i 's/-Werror//' %{buildroot}%{_usrsrc}/%{module}-%{version}-%{release}/Makefile
 
-mkdir -p %{buildroot}/lib/udev/rules.d/
-cp %{SOURCE1} %{buildroot}/lib/udev/rules.d/
 
