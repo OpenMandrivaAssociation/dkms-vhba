@@ -11,7 +11,7 @@ Release:	1
 Group:		System/Kernel and hardware
 License:	GPLv2+
 Url:		http://cdemu.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/cdemu/%{oname}-%{snapshot}.tar.bz2
+Source0:	http://downloads.sourceforge.net/cdemu/%{oname}-%{version}.tar.bz2
 Source10:	%{name}.rpmlintrc
 Requires:	dkms
 Requires(post,preun):	dkms
