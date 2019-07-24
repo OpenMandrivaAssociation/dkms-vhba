@@ -36,7 +36,7 @@ true
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{oname}-%{snapshot}
+%setup -q -n %{oname}-%{version}
 rm -rf debian
 
 %build
