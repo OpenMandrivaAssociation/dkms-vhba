@@ -6,7 +6,7 @@
 Summary:	Virtual SCSI HBA kernel module
 Name:		dkms-vhba
 # Sync version with cdemu because there's no version for module
-Version:	20190410
+Version:	20190831
 Release:	1
 Group:		System/Kernel and hardware
 License:	GPLv2+
