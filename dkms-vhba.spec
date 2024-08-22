@@ -6,12 +6,12 @@
 Summary:	Virtual SCSI HBA kernel module
 Name:		dkms-vhba
 # Sync version with cdemu because there's no version for module
-Version:	20211218
+Version:	20240202
 Release:	1
 Group:		System/Kernel and hardware
 License:	GPLv2+
-Url:		http://cdemu.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/cdemu/%{oname}-%{version}.tar.xz
+Url:		https://cdemu.sourceforge.net/
+Source0:	https://downloads.sourceforge.net/cdemu/%{oname}-%{version}.tar.xz
 Source10:	%{name}.rpmlintrc
 Requires:	dkms
 Requires(post,preun):	dkms
