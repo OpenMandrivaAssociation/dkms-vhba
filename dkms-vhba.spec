@@ -7,12 +7,14 @@ Summary:	Virtual SCSI HBA kernel module
 Name:		dkms-vhba
 # Sync version with cdemu because there's no version for module
 Version:	20240917
-Release:	2
+Release:	3
 Group:		System/Kernel and hardware
 License:	GPLv2+
 Url:		https://cdemu.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/cdemu/%{oname}-%{version}.tar.xz
 Source10:	%{name}.rpmlintrc
+# support kernel 6.14rc
+Patch0:   https://github.com/cdemu/cdemu/commit/ee6bba585d53891577089e9dd856eb733d8231f8.patch
 Requires:	dkms
 Requires(post,preun):	dkms
 BuildArch:	noarch
@@ -36,7 +38,7 @@ true
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{oname}-%{version}
+%autosetup -n %{oname}-%{version} -p1
 rm -rf debian
 
 %build
