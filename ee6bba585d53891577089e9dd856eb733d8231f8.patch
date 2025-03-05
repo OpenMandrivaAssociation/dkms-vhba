@@ -13,11 +13,10 @@ See: https://github.com/torvalds/linux/commit/ce32496
  vhba-module/vhba.c | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/vhba-module/vhba.c b/vhba-module/vhba.c
-index 75312233..64b09ece 100644
---- a/vhba-module/vhba.c
-+++ b/vhba-module/vhba.c
-@@ -537,7 +537,9 @@ static struct scsi_host_template vhba_template = {
+diff -uraN vhba-module-20240917/vhba.c omv-vhba-module-20240917/vhba.c
+--- vhba-module-20240917/vhba.c	2024-09-17 11:48:31.000000000 +0200
++++ omv-vhba-module-20240917/vhba.c	2025-03-05 16:57:10.122974527 +0100
+@@ -537,7 +537,9 @@
  #if LINUX_VERSION_CODE < KERNEL_VERSION(3, 19, 0)
      .slave_alloc = vhba_slave_alloc,
  #endif
